@@ -20,32 +20,47 @@
     </nav>
     <section id="home">
       <h1>Hi, I'm L</h1>
-      <p>Freshman. CS.</p>
-      <p>Welcome to my personal resume website!</p>
+      <div class="typewriter-container">
+        <p>CS. Welcome to my personal resume website!</p>
+        <p class="typewriter"></p>
+      </div>
     </section>
     <section id="about">
-      <div class="about-me">
+      <div class="about-me fade-in-section">
         <img src="profile.jpg" alt="Profile Picture" class="profile-pic">
         <div class="about-text">
           <h2>About Me</h2>
           <p>I am a freshman studying Computer Science. I have a passion for coding and technology.</p>
         </div>
       </div>
-      <div class="tech-stack">
+      <div class="tech-stack fade-in-section">
         <h2>Tech Stack</h2>
-        <div class="tech-icons">
-            <img src="html.png" alt="HTML" class="tech-icon">
-            <img src="css.png" alt="CSS" class="tech-icon">
-            <img src="javascript.png" alt="JavaScript" class="tech-icon">
-            <img src="golang.png" alt="Go" class="tech-icon">
-            <img src="python.png" alt="Python" class="tech-icon">
-            <img src="react.png" alt="React" class="tech-icon">
-            <img src="docker.png" alt="Docker" class="tech-icon">
-            <img src="git.png" alt="Git" class="tech-icon">
-            <img src="github.png" alt="GitHub" class="tech-icon">
+        <div class="tech-icons-wrapper">
+            <div class="tech-icons">
+                <img src="html.png" alt="HTML5" class="tech-icon">
+                <img src="css.png" alt="CSS3" class="tech-icon">
+                <img src="javascript.png" alt="JavaScript" class="tech-icon">
+                <img src="golang.png" alt="Go" class="tech-icon">
+                <img src="python.png" alt="Python" class="tech-icon">
+                <img src="react.png" alt="React" class="tech-icon">
+                <img src="docker.png" alt="Docker" class="tech-icon">
+                <img src="git.png" alt="Git" class="tech-icon">
+                <img src="github.png" alt="GitHub" class="tech-icon">
+            </div>
+            <div class="tech-icons">
+                <img src="html.png" alt="HTML" class="tech-icon">
+                <img src="css.png" alt="CSS" class="tech-icon">
+                <img src="javascript.png" alt="JavaScript" class="tech-icon">
+                <img src="golang.png" alt="Go" class="tech-icon">
+                <img src="python.png" alt="Python" class="tech-icon">
+                <img src="react.png" alt="React" class="tech-icon">
+                <img src="docker.png" alt="Docker" class="tech-icon">
+                <img src="git.png" alt="Git" class="tech-icon">
+                <img src="github.png" alt="GitHub" class="tech-icon">
+            </div>
         </div>
       </div>
-      <div class="timeline">
+      <div class="timeline fade-in-section">
           <h2>Timeline</h2>
           <ul class="timeline-list">
               <li><strong>2024：</strong>started studying Computer Science</li>
@@ -56,30 +71,11 @@
     </section>
     <section id="projects">
       <h2>Projects</h2>
-      <div class="project-list">
-          <div class="project-item" data-url="https://github.com/NYCU-SDC/full-stack-intro-frontend">
-              <h3>Full Stack Intro.</h3>
-              <p>從零開始認識前後端開發！從環境設定、HTML、CSS、JavaScript 等基礎打好地基，並逐步學習版面切版、網頁動態效果實作，讓大家都能獨立完成屬於自己、能「動起來」的互動式履歷網站。</p>
-              <p>Created on 2025/09/22</p>
-          </div>
-          <div class="project-item" data-url="https://github.com/NYCU-SDC/full-stack-advanced-frontend">
-              <h3>Full Stack Advanced</h3>
-              <p>這門課會透過實作任務管理工具，熟悉 React 的開發生態系，了解前端的實作細節。下學期則會延續專案，完成 Golang 後端，學習完整的前後端開發。</p>
-              <p>Created on 2025/08/29</p>
-          </div>
-          <div class="project-item" data-url="https://github.com/NYCU-SDC/core-system-frontend">
-              <h3>Core System</h3>
-              <p>一站式完成大部分行政操作，不必在表單、試算表和群組訊息間來回切換。<br>
-                  從真實需求出發，逐步迭代。<br>
-                  讓行政變簡單，把時間留給更有價值的活動與交流。</p>
-              <p>Created on 2025/05/29</p>
-          </div>
-          <div class="project-item" data-url="https://github.com/NYCU-SDC/clustron-frontend">
-              <h3>Clustron</h3>
-              <p>Clustron 是一個計算機叢集與異質計算管理的可視化解決方案，結合實驗室與課程的實務需求，提供一個可實際運作的解決方案。</p>
-              <p>Created on 2025/04/16</p>
-          </div>
+      <div class="project-search">
+        <input type="text" id="project-search-input" placeholder="Search projects...">
+        <buttomn id="project-search-btn">🔎</button>
       </div>
+      <div class="project-list"></div>
     </section>
     <section id="contact">
         <h2>Get in Touch</h2>
@@ -105,12 +101,12 @@
                 </svg>
             </a>
         </div>
-        <div class="contact-form">
-            <input type="text" placeholder="Please enter your name">
-            <input type="email" placeholder="Please enter your email">
-            <textarea placeholder="Please enter your message"></textarea>
+        <form class="contact-form" action="https://formspree.io/f/xwpdwdro" method="POST">
+            <input type="text" name="name" placeholder="Please enter your name" required>
+            <input type="email" name="email" placeholder="Please enter your email" required>
+            <textarea name="message" placeholder="Please enter your message" required></textarea>
             <button type="submit">Send Message</button>
-        </div>
+        </form>
     </section>
     <script src="script.js"></script>
 </body>
