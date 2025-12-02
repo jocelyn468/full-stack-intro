@@ -35,6 +35,49 @@ const projects = [
     "url": "https://github.com/NYCU-SDC/clustron-frontend"
   }
 ]
+const typewriterElement = document.querySelector(".typewriter");
+const texts = [" NYCU Computer Science.", " Second Grade.", " Full Stack Intro."];
+let textIndex = 0;
+let isDeleting = false;
+
+function typeWriter() {
+    const currentText = texts[textIndex];
+    const typingSpeed = 100; 
+    const deletingSpeed = 50; 
+    const pauseAfterTyping = 2000;
+    const pauseAfterDeleting = 500;
+    if (!isDeleting) {
+        let charIndex = 0;
+        typewriterElement.textContent = "";
+        const typingInterval = setInterval(() => {
+            typewriterElement.textContent += currentText[charIndex];
+            charIndex++;
+            if (charIndex === currentText.length) {
+                clearInterval(typingInterval);
+                setTimeout(() => {
+                    isDeleting = true;
+                    typeWriter();
+                }, pauseAfterTyping);
+            }
+        }, typingSpeed);
+    } else {
+        let charIndex = currentText.length;
+        const deletingInterval = setInterval(() => {
+            typewriterElement.textContent = currentText.substring(0, charIndex - 1);
+            charIndex--;
+            if (charIndex === 0) {
+                clearInterval(deletingInterval);
+                isDeleting = false;
+                textIndex = (textIndex + 1) % texts.length;
+                setTimeout(() => {
+                    typeWriter();
+                }, pauseAfterDeleting);
+            }
+        }, deletingSpeed);
+    }
+}
+typeWriter();
+
 const projectsList = document.querySelector(".project-list");
 
 function renderProjects(list) {
@@ -120,4 +163,20 @@ sections.forEach(section => {
 const fadeInSections = document.querySelectorAll(".fade-in-section");
 fadeInSections.forEach(section => {
     sectionObserver.observe(section);
+});
+const hobbyCards = document.querySelectorAll(".hobby-card");
+hobbyCards.forEach(card => {
+    card.addEventListener("click", function() {
+        const url = this.getAttribute("data-url");
+        if (url) {
+            window.open(url, "_blank");
+        }
+    });
+});
+
+window.addEventListener("scroll", () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = (scrollTop / docHeight) * 100;
+    document.getElementById("progress-bar").style.width = progress + "%";
 });
